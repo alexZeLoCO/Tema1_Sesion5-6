@@ -51,7 +51,7 @@ public class CirclesMain {
 			// We wait until the Enter key is pressed
 			// MyKeyboard is a static class defined in MyWindow.java
 			MyKeyboard.pressEnter();	
-			moveCircles(circles,100);
+			moveCircles(circles,15);
 		}
 		// close and frees the resources used by the window
 		closeWindow();
@@ -78,7 +78,7 @@ public class CirclesMain {
 				vector[i].getCentre().setX(Math.max(vector[i].getCentre().getX(), 0));		//Check
 			} else {
 				if (random==2) {
-					//Change x 
+					//Change y 
 					if (Dice.roll(2)==1) {
 						//Positive
 						vector[i].offsetY(Dice.roll(k+1)-1);

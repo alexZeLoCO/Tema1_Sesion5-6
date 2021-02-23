@@ -39,16 +39,35 @@ public class CirclesTest_1_6_1_B {
 			// WINDOW: show circles (in the window)
 			showCircles(circles);
 
-			absorption(circles);
+			//absorption(circles);
+			
+			intersection(circles);
+			
 			// We wait until the Enter key is pressed
 			// MyKeyboard is a static class defined in MyWindow.java
 			MyKeyboard.pressEnter();	
-			moveCircles(circles,100);
+			//moveCircles(circles,100);
 		}
 		// close and frees the resources used by the window
 		closeWindow();
 	}
 
+	private static void intersection (CircleWithCentre[] vector) {
+		//int count=0;
+		//do {
+		for (int i=0;i<vector.length;i++) {		//for every element in the vector
+			for (int j=0;j<vector.length;j++) {		//for every element in the vector
+				if (i!=j && vector[i].notNull() && vector[j].notNull() && CircleWithCentre.overlaps(vector[i],vector[j])) {		//if the elements are different, none of them are null and they overlap
+					System.out.printf("Common area between circles %d and %d: %.3f. \n", i , j , CircleWithCentre.intersection(vector[i], vector[j],10000000));
+					//count--;		//reduce by one
+				}
+				//count++;		//increase one
+			}
+		}
+		//} while (count<Math.pow(vector.length,2));
+					//Maximum number of combinations elements^2. The count reaches maximum ==> all possible combination of elements have been observed.
+	}
+	
 	/**
 	 * Initiates absorption procedure. As long as circles are overlappable one will absorb the other.
 	 * @param vector - Vector of circles to be absorbed.
